@@ -108,7 +108,6 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
             sql += " price <= ?";
         }
         log.info("sql={}", sql);
-        log.info("sql={}", sql);
         return template.query(sql, param, itemRowMapper());
     }
 
