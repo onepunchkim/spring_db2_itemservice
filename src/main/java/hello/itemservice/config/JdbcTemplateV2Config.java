@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 public class JdbcTemplateV2Config {
 
     private final DataSource dataSource;
+    private final Integer asd;
 
     @Bean
     public ItemService itemService() {
