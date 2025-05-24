@@ -14,8 +14,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -97,7 +95,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
             if (andFlag) {
                 sql += " and";
             }
-            sql += " price <= ?";
+            sql += " price <= :maxPrice";
         }
         log.info("sql={}", sql);
         return template.query(sql, param, itemRowMapper());
